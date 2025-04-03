@@ -10,5 +10,6 @@ main: main.nim
 	nim compile \
 		--verbosity:0 \
 		--out:./nbf --outdir:. \
-		--warningAsError:Uninit:on --experimental:strictDefs \
+		--warningAsError:Uninit:on \
+		--experimental:strictDefs \
 		main.nim

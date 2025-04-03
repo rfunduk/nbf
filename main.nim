@@ -8,7 +8,7 @@ const MAX_MEM = 30000
 const COMMANDS = {'+', '-', '<', '>', '[', ']', '.', ','}
 const REPEATABLE_COMMANDS = {'+', '-', '<', '>', '.'}
 
-type BfOp = object
+type BfOp = object of RootObj
   index: uint32
   command: char
   repeatCount: uint8 = 1
@@ -79,7 +79,7 @@ func translate(source: string): seq[BfOp] =
   result = ops
 
 proc execute(ops: seq[BfOp]) =
-  var mem: array[MAX_MEM, uint8]
+  var mem = default(array[MAX_MEM, uint8])
   var ip: uint16 = 0 # instruction pointer
   var mp: uint16 = 0 # memory pointer
 
